@@ -28,3 +28,12 @@
 > 따라서 ReactDOM.render를 커스텀할 수 있는 곳이 없다.
 > 유일하게 할 수 있는 것은 pages 안에서 무언가를 만드는 것
 > Next.js 내의 어딘가에서 ReactDOM.render 과정을 하고 있는 것. 그리고 우리가 거기로 직접 접근할 수 없다.
+
+## pages
+
+- pages 디렉토리 내의 파일명은 URL이 된다
+- 예외사항
+  - index.tsx : URL에 `/`로 표시 된다.
+    ⇒ `/index` 로 표시되지 않음
+  - react를 import할 필요가 없다
+    - react 메서드를 사용할 때에는 import가 필요
