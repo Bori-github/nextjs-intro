@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# NextJS Introduction
 
-## Getting Started
+## Library(라이브러리) vs Framework(프레임워크)
 
-First, run the development server:
+### Library
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- 사용자가 폴더 구조나 파일명 등 모든 것을 정할 수 있고, 사용자가 원하는대로 라이브러리를 가져다 사용하는 것
+  ⇒ 사용자의 자유도가 높다
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Framework
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- 프레임워크가 정한 특정 규칙에 따라 코드를 작성하면 프레임워크가 사용자가 작성한 코드를 불러와서 동작하는 형태
+  ⇒ 사용자의 자유도가 정해진 규칙 내에 한정되어 있다
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+### 주요 차이점 = "Inversion of Control"(통제의 역전)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- 라이브러리에서 메서드를 호출하면 사용자가 제어 가능
+- 프레임워크에서는 제어가 역전되어 프레임워크가 사용자를 호출
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> 예시) React
+> 비어있는 App component로 시작
+> 내가 언제 react를 import 할 지, 어떤 폴더 구조로 만들지 정할 수 있고 폴더명도 내가 원하는대로 지정할 수 있다.
+> routing을 다루는 방법은 나에게 달려있다.
+> => React 앱을 만드는데에는 자유도가 있다
+> React 앱이 만들어졌을 때 모든 것을 볼 수 있다
+>
+> Next.js에는 ReactDOM.render가 없다.
+> 따라서 ReactDOM.render를 커스텀할 수 있는 곳이 없다.
+> 유일하게 할 수 있는 것은 pages 안에서 무언가를 만드는 것
+> Next.js 내의 어딘가에서 ReactDOM.render 과정을 하고 있는 것. 그리고 우리가 거기로 직접 접근할 수 없다.
