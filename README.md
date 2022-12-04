@@ -50,3 +50,29 @@ export default PageName;
     ⇒ `/index` 로 표시되지 않음
   - react를 import할 필요가 없다
     - react 메서드를 사용할 때에는 import가 필요
+
+## Client Side Rendering(CRA)
+
+- 브라우저가 유저가 보는 UI를 만든다는 것을 의미
+- CSR이 소스코드를 보면 비어있는 하나의 div만 존재 ⇒ 유저가 보게 될 비어있는 HTML
+- 나머지는 모두 JavaScript로 이루어져 있다
+- 브라우저가 JavaScript(React.js)를 다운받고 난 후 JavaScript가 모든 UI를 만드는 것
+- 단점
+  - 브라우저가 JavaScript, React 등 모든 것을 fetch한 후 UI가 보인다
+  - 초기 렌더링 시 비어있는 흰 화면이 먼저 나타나고, 로딩 후 데이터들이 보이기 시작
+
+## Pre Rendering(Next.js)
+
+### Initial Load
+
+- Next.js는 React를 백엔드에서 동작 시켜 페이지를 미리 생성하여 페이지의 소스코드에 HTML 코드를 넣는다
+- 유저는 JavaScript와 React가 로딩되지 않았더라도 컨텐츠를 볼 수 있다
+  - JavaScript가 비활성화 되어 있어도 소스코드에 HTML 코드가 존재한다
+  - 데이터가 로딩되는 데 시간이 오래 걸린다고 하더라도 유저는 적어도 어떠한 HTML 코드를 볼 수 있다
+
+### Hydration
+
+- React가 로딩되었을 때, 미리 생성된 HTML과 연결
+  ⇒ 상호작용이 일어난다
+
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fctjh7i%2Fbtq805Fhpk0%2Fs2Tn9LP37uB8ZkwsBryWeK%2Fimg.png)
