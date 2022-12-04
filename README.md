@@ -31,9 +31,22 @@
 
 ## pages
 
-- pages 디렉토리 내의 파일명은 URL이 된다
+- pages 디렉토리 내의 파일명은 URL이 된다(component의 이름은 중요하지 않다)
+- 단, defualt로 export 해야한다
+
+```
+export default function PageName () {}
+
+// 또는
+
+const PageName = () => {}
+export default PageName;
+```
+
+- `export detault`를 적용하지 않은 경우 에러 발생
+  ![](https://i.imgur.com/dAd4iKg.png)
 - 예외사항
-  - index.tsx : URL에 `/`로 표시 된다.
+  - index.tsx : URL에 `/`로 표시 된다
     ⇒ `/index` 로 표시되지 않음
   - react를 import할 필요가 없다
     - react 메서드를 사용할 때에는 import가 필요
