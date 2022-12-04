@@ -76,3 +76,56 @@ export default PageName;
   ⇒ 상호작용이 일어난다
 
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fctjh7i%2Fbtq805Fhpk0%2Fs2Tn9LP37uB8ZkwsBryWeK%2Fimg.png)
+
+## Routing
+
+- Next.js 앱 내에서 페이지를 네비게이트 할 때 사용해야하는 특정 컴포넌트가 존재
+- 아래의 예시와 같이 `a`태그만 사용했을 경우, 해당 링크를 클릭하면 브라우저가 다른 페이지로 보내기 위해 전체 페이지를 새로고침하게 된다
+  ⇒ 클라이언트 사이드 네비게이션이 없다는 것을 의미
+  ⇒ 또한, 속도도 느리다.
+
+> #### [Clinet-Side Navigation(클라이언트 사이드 네비게이션)](https://nextjs.org/learn/basics/navigate-between-pages/client-side)
+>
+> Client-side navigation means that the page transition happens using JavaScript, which is faster than the default navigation done by the browser.<br/>
+> ⇒ 페이지 전환 시 자바스크립트를 사용하여 브라우저에 의한 동작보다 속도가 더 빠르다<br/>
+> ⇒ 링크 클릭 시 전페 페이지가 새로고침 되지 않는다.
+
+```javascript
+// a태그로만 이루어진 네비게이션
+export const NavigationBar = () => {
+  return (
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+    </nav>
+  );
+};
+
+// Link를 사용한 네비게이션
+import Link from 'next/link';
+
+export const NavigationBar = () => {
+  return (
+    <nav>
+      <Link href={'/'}>Home</Link>
+      <Link href={'/about'}>About</Link>
+    </nav>
+  );
+};
+```
+
+### `useRouter`
+
+- `useRouter` hook을 사용하여 router 객체에 접근할 수 있다.
+
+```javascript
+import { useRouter } from 'next/router';
+
+export const NavigationBar = () => {
+  const router = useRouter();
+  console.log(router);
+  // 코드 생략
+};
+```
+
+![](https://i.imgur.com/CoZriNQ.png)
