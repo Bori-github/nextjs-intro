@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next';
+import Link from 'next/link';
 import { Title } from '../components/Title';
 
 const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500';
@@ -19,10 +20,12 @@ const HomePage = ({ results }: ResultsProps) => {
       {results?.map((movie) => {
         const { id, original_title, poster_path } = movie;
         return (
-          <div key={id}>
-            <img src={`${IMAGE_BASE_URL}${poster_path}`} alt="" />
-            <h4 key={id}>{original_title}</h4>
-          </div>
+          <Link key={id} href={`movies/${original_title}/${id}`}>
+            <div>
+              <img src={`${IMAGE_BASE_URL}${poster_path}`} alt="" />
+              <h4 key={id}>{original_title}</h4>
+            </div>
+          </Link>
         );
       })}
     </div>
