@@ -1,12 +1,11 @@
 import type { AppProps } from 'next/app';
-import { NavigationBar } from '../components/NavigationBar';
+import { Layout } from '../components/Layout';
 import '../styles/globals.css';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <NavigationBar />
+    <Layout>
       <Component {...pageProps} />
-    </>
+    </Layout>
   );
 }
