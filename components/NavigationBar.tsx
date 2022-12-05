@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 export const NavigationBar = () => {
   const router = useRouter();
-  console.log(router);
   return (
     <nav>
       <Link href={'/'} legacyBehavior>
