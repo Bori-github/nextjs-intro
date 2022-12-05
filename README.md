@@ -198,3 +198,35 @@ export const NavigationBar = () => {
   </nav>;
 };
 ```
+
+## Custom `App`
+
+Next.js는 `App` 컴포넌트를 사용하여 페이지를 초기화 한다.
+
+- 페이지간 레이아웃 유지
+- 페이지 탐색 시 state 유지
+- componentDidCatch를 사용한 커스텀 에러 핸들링
+- 페이지에 추가 데이터 삽입
+- global CSS 적용
+- 사용 방법
+  - `/pages/_app.tsx` 파일 생성
+  - Next.js는 `_app.tsx`파일을 다른 파일들보다 먼저 실행된다
+
+```tsx
+import type { AppProps } from 'next/app';
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
+}
+```
+
+### Global CSS 적용하기
+
+- `/styles/globals.css`파일을 `_app.tsx`에 `import` 하기
+  - 커스텀 App 이외의 페이지나 컴포넌트에서는 `globals.css`를 `import` 할 수 없다.
+  - 커스텀 App 이외의 페이지나 컴포넌트에서는 CSS Modules를 사용해야한다.
+
+```tsx
+// _app.tsx
+import '../styles/globals.css';
+```
