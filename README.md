@@ -129,3 +129,72 @@ export const NavigationBar = () => {
 ```
 
 ![](https://i.imgur.com/CoZriNQ.png)
+
+## Style
+
+### CSS Module
+
+- CSS 파일의 확장자 명 : `.module.css`
+- 컴포넌트 파일에서 해당 CSS 파일을 import 하여 사용
+  - 해당 컴포넌트 내에서 CSS 파일에서 선언한 클래스 이름이 고유해진다
+  - `className` 설정 시 `import`로 불러온 `styles` 객체 안의 값을 참조
+  - 여러 개의 클래스를 적용할 경우
+  ```
+  className={`${styles.one} ${styles.two}`}`
+  ```
+  - 조건부 스타일링을 적용할 경우
+  ```
+  className={`${styles.one} ${condition ? styles.two : ""}`}`
+  ```
+
+```css
+/* `NavigationBar.module.css` */
+.nav {
+  background-color: aquamarine;
+  color: white;
+}
+```
+
+```jsx
+// NavigationBar.tsx
+import styles from './NavigationBar.module.css';
+
+export const NavigationBar = () => {
+  return <nav className={styles.nav}>// 코드 생략</nav>;
+};
+```
+
+![](https://i.imgur.com/MRWoYu6.png)
+
+### Styled JSX
+
+- Next.js가 기본으로 제공하는 기능
+- `<style jsx>` 태그를 사용
+  - `global` 속성을 추가하면 global styles를 적용할 수 있다
+  - 단, 페이지 별로 적용되는 Next.js의 특성을 고려해야한다
+
+```jsx
+<style jsx>{`
+  /* 스타일 넣기 */
+`}</style>
+
+/* global styles 적용 */
+<style jsx global>{`
+  /* 스타일 넣기 */
+`}</style>
+```
+
+```jsx
+// NavigationBar.tsx
+export const NavigationBar = () => {
+  return;
+  <nav className="nav">
+    // 코드 생략
+    <style jsx>{`
+      .nav {
+        background-color: red;
+      }
+    `}</style>
+  </nav>;
+};
+```
